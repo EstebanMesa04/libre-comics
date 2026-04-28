@@ -1,4 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
+import Galeria from "./pages/Galeria";
+import Lector from "./pages/Lector/Lector";
 import "./App.css";
 
 function App() {
@@ -6,13 +8,15 @@ function App() {
     <>
       {/* barra de navegación superior */}
       <header>
-        <Link to="/">Galeria</Link>
-        <Link to="/favoritos">Favoritos</Link>
+        LOGO | <Link to="/">Galeria</Link> |{" "}
+        <Link to="/favoritos">Favoritos</Link> |{" "}
+        <Link to="/lector">lector</Link>
       </header>
       {/* Enrutamiento */}
       <Routes>
-        <Route path="/" element={<h1>Galeria</h1>} />
+        <Route path="/" element={<Galeria />} />
         <Route path="/favoritos" element={<h1>Favoritos</h1>} />
+        <Route path="/lector" element={<Lector />} />
       </Routes>
     </>
   );

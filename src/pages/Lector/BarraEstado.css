@@ -1,0 +1,10 @@
+.bar-contenedor {
+  background-color: rgb(35, 40, 49);
+  color: azure;
+  min-height: 50px;
+  display: flex;
+  gap: 20px;
+  padding: 0px 12px;
+  align-items: center;
+  justify-content: space-between;
+}

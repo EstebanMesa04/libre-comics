@@ -1,0 +1,34 @@
+.lector-contenedor {
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "p b"
+    "p v";
+}
+
+.panel-control-contenedor {
+  grid-area: p;
+  width: 300px;
+  overflow: hidden;
+  transition: width 0.3s;
+}
+
+.panel-control-ocultar {
+  width: 0;
+}
+
+.barra-estado-contenedor {
+  grid-area: b;
+  overflow: hidden;
+  height: 50px;
+  transition: height 0.3s;
+}
+.barra-estado-ocultar {
+  height: 0;
+}
+
+.visor-contenedor {
+  grid-area: v;
+}
