@@ -1,11 +1,17 @@
 .lector-contenedor {
   flex: 1;
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr;
+  max-height: 100vh;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto calc(100vh - 50px);
   grid-template-areas:
+    "n n"
     "p b"
     "p v";
+}
+
+.navbar-contenedor {
+  grid-area: n;
 }
 
 .panel-control-contenedor {
@@ -27,8 +33,4 @@
 }
 .barra-estado-ocultar {
   height: 0;
-}
-
-.visor-contenedor {
-  grid-area: v;
 }

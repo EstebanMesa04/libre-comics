@@ -1,0 +1,28 @@
+.nav-contenedor {
+  background-color: #f4e9d4;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0px 20px;
+  gap: 28px;
+  box-shadow: #00000024 0px 0px 10px 3px;
+}
+
+.nav-logo {
+  color: #6aae9d;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  margin-right: 50px;
+}
+
+.nav-link {
+  color: #5b4a68;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-link.active {
+  color: #37364e;
+  text-decoration: underline;
+}

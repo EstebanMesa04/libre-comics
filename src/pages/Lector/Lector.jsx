@@ -1,6 +1,8 @@
 import { useState } from "react";
 import BarraEstado from "./BarraEstado";
 import PanelControl from "./PanelControl";
+import VisorPagina from "./VisorPagina";
+import Navbar from "../../components/Navbar";
 
 import "./Lector.css";
 
@@ -10,6 +12,26 @@ function Lector() {
 
   return (
     <main className="lector-contenedor">
+      <div className={`navbar-contenedor`}>
+        <button
+          onClick={() => {
+            setMostrarPanel(!mostrarPanel);
+          }}
+          type="button"
+        >
+          panel de control
+        </button>
+
+        <button
+          onClick={() => {
+            setMostrarBarra(!mostrarBarra);
+          }}
+          type="button"
+        >
+          barra de estado
+        </button>
+        <Navbar />
+      </div>
       <div
         className={`panel-control-contenedor  ${mostrarPanel ? "" : "panel-control-ocultar"}`}
       >
@@ -27,25 +49,12 @@ function Lector() {
           pgTotal={15}
         />
       </div>
-      <div className="visor-contenedor">
-        Visor de paginas
-        <button
-          onClick={() => {
-            setMostrarPanel(!mostrarPanel);
-          }}
-          type="button"
-        >
-          panel de control
-        </button>
-        <button
-          onClick={() => {
-            setMostrarBarra(!mostrarBarra);
-          }}
-          type="button"
-        >
-          barra de estado
-        </button>
-      </div>
+      <VisorPagina
+        className="visor-contenedor"
+        url={
+          "https://images.pexels.com/photos/36421534/pexels-photo-36421534.jpeg"
+        }
+      />
     </main>
   );
 }
