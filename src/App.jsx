@@ -7,7 +7,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      {/* barra de navegación superior */}
+      {/* barra de navegación superior, se oculta en el modo lectura */}
       {useLocation().pathname.includes("lector") ? null : <Navbar />}
       {/* Enrutamiento */}
       <Routes>
