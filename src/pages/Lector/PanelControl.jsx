@@ -1,6 +1,14 @@
+import { useState } from "react";
 import "./PanelControl.css";
 
-function PanelControl({ titulo, pgActual }) {
+function PanelControl({
+  titulo,
+  pgActual,
+  setNav,
+  estadoNav,
+  setBarra,
+  estadoBarra,
+}) {
   return (
     <div className="panelc-contenedor">
       <h1 className="panelc-titulo">{titulo}</h1>
@@ -10,15 +18,6 @@ function PanelControl({ titulo, pgActual }) {
           pg
           <select value={pgActual}>
             <option value={1}>{1}</option>
-            <option value={2}>{2}</option>
-            <option value={3}>{3}</option>
-            <option value={4}>{4}</option>
-            <option value={5}>{5}</option>
-            <option value={6}>{6}</option>
-            <option value={7}>{7}</option>
-            <option value={8}>{8}</option>
-            <option value={9}>{9}</option>
-            <option value={10}>{10}</option>
           </select>
         </label>
         <button>{"->"}</button>
@@ -32,10 +31,24 @@ function PanelControl({ titulo, pgActual }) {
       <div className="panelc-opciones">
         <h2>Opciones de lectura</h2>
         <label>
-          pantalla completa <input type="checkbox" />
+          mostrar barra de navegación{" "}
+          <input
+            type="checkbox"
+            checked={estadoNav}
+            onChange={(e) => {
+              setNav(e.target.checked);
+            }}
+          />
         </label>
         <label>
-          mostrar barra de estado <input type="checkbox" />
+          mostrar barra de estado{" "}
+          <input
+            type="checkbox"
+            checked={estadoBarra}
+            onChange={(e) => {
+              setBarra(e.target.checked);
+            }}
+          />
         </label>
       </div>
     </div>

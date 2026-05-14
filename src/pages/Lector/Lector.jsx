@@ -9,10 +9,15 @@ import "./Lector.css";
 function Lector() {
   const [mostrarPanel, setMostrarPanel] = useState(true);
   const [mostrarBarra, setMostrarBarra] = useState(true);
+  const [mostrarNav, setMostrarNav] = useState(true);
 
   return (
-    <main className="lector-contenedor">
-      <div className={`navbar-contenedor`}>
+    <main
+      className={`lector-contenedor ${mostrarPanel ? "" : "lector-contenedor-panel-oculto"}`}
+    >
+      <div
+        className={`navbar-contenedor ${mostrarNav ? "" : "navbar-contenedor-ocultar"}`}
+      >
         <button
           onClick={() => {
             setMostrarPanel(!mostrarPanel);
@@ -30,6 +35,14 @@ function Lector() {
         >
           barra de estado
         </button>
+        <button
+          onClick={() => {
+            setMostrarNav(!mostrarNav);
+          }}
+          type="button"
+        >
+          nav
+        </button>
         <Navbar />
       </div>
       <div
@@ -38,6 +51,10 @@ function Lector() {
         <PanelControl
           titulo={"Titulo de ejemplo en la Barra de estado"}
           pgActual={5}
+          setNav={setMostrarNav}
+          estadoNav={mostrarNav}
+          setBarra={setMostrarBarra}
+          estadoBarra={mostrarBarra}
         />
       </div>
       <div
@@ -54,6 +71,8 @@ function Lector() {
         url={
           "https://images.pexels.com/photos/36421534/pexels-photo-36421534.jpeg"
         }
+        navVisible={mostrarNav}
+        barraVisible={mostrarBarra}
       />
     </main>
   );

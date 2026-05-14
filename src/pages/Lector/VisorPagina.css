@@ -1,15 +1,27 @@
 .visorp-contenedor {
   grid-area: v;
-  max-height: 100%;
   max-width: 100%;
   background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: height 0.3s;
+}
+
+.visorp-contenedor-b0 {
+  max-height: 100vh;
+}
+
+.visorp-contenedor-b1 {
+  max-height: calc(-50px + 100vh);
+}
+
+.visorp-contenedor-b2 {
+  max-height: calc(-100px + 100vh);
 }
 
 .visorp-img {
   height: 100%;
-  width: 100%;
+  width: auto;
   object-fit: contain;
 }

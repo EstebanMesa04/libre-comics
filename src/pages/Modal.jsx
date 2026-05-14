@@ -79,7 +79,6 @@ function Modal({ manga, alCerrar }) {
           )}
         </div>
       </div>
-      {console.log(capitulos[0])}
     </div>
   );
 }
