@@ -1,5 +1,4 @@
 const getPortadaUrl = (manga) => {
-  // 1. Buscamos el objeto de relación tipo 'cover_art'
   const coverRel = manga.relationships.find((rel) => rel.type === "cover_art");
 
   if (!coverRel || !coverRel.attributes) return "URL_DE_BACKUP_AQUI";
@@ -14,7 +13,9 @@ function MangaCard({ manga }) {
   const titulo =
     manga.attributes.title.en ||
     manga.attributes.title["ja-ro"] ||
+    manga.attributes.title[Object.keys(manga.attributes.title)[0]] ||
     "Sin título";
+
   const portadaUrl = getPortadaUrl(manga);
 
   return (
