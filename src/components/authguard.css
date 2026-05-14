@@ -1,0 +1,43 @@
+.auth-guard-wall {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0a0e1a;
+}
+
+.auth-guard-content {
+  text-align: center;
+  background: #121620;
+  padding: 48px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 450px;
+  margin: 20px;
+  border: 1px solid #2a2f3e;
+}
+
+.auth-guard-content h1 {
+  margin: 0 0 16px 0;
+  color: #ffffff;
+}
+
+.auth-guard-content p {
+  margin: 0 0 24px 0;
+  color: #8a8f9e;
+}
+
+.auth-guard-content button {
+  padding: 12px 32px;
+  background: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-guard-content button:hover {
+  background: #5a52e0;
+}
