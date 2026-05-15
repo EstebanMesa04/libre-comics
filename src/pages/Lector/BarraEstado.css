@@ -8,3 +8,12 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.bar-icon {
+  height: 40px;
+  width: auto;
+}
+.bar-icon:hover {
+  color: #d0baa9;
+  transform: scale(1.1);
+}

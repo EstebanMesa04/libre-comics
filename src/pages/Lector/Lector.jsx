@@ -18,31 +18,6 @@ function Lector() {
       <div
         className={`navbar-contenedor ${mostrarNav ? "" : "navbar-contenedor-ocultar"}`}
       >
-        <button
-          onClick={() => {
-            setMostrarPanel(!mostrarPanel);
-          }}
-          type="button"
-        >
-          panel de control
-        </button>
-
-        <button
-          onClick={() => {
-            setMostrarBarra(!mostrarBarra);
-          }}
-          type="button"
-        >
-          barra de estado
-        </button>
-        <button
-          onClick={() => {
-            setMostrarNav(!mostrarNav);
-          }}
-          type="button"
-        >
-          nav
-        </button>
         <Navbar />
       </div>
       <div
@@ -64,6 +39,8 @@ function Lector() {
           titulo={"Titulo de ejemplo en la Barra de estado"}
           pgActual={5}
           pgTotal={15}
+          setPanel={setMostrarPanel}
+          estadoPanel={mostrarPanel}
         />
       </div>
       <VisorPagina

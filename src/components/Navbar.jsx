@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import UserBar from "./UserBar";
 import "./Navbar.css";
 
 function Navbar() {
@@ -14,6 +15,8 @@ function Navbar() {
       <NavLink className="nav-link" to="/lector">
         lector
       </NavLink>
+      <div style={{ flex: 1 }}></div>
+      <UserBar />
     </nav>
   );
 }
