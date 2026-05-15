@@ -45,7 +45,7 @@
 /* Grid de comics compacto */
 .comics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px;
   max-width: 1200px;
   margin: 0 auto;
@@ -53,13 +53,16 @@
 
 /* Tarjeta de comic compacta */
 .comic-card {
-  background: #121620;
+  background: #292d41;
   border: 1px solid #1e2430;
   border-radius: 10px;
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
-  max-height: 280px;
+  max-height: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .comic-card:hover {
@@ -98,12 +101,12 @@
   .galeria.dark {
     padding: 10px;
   }
-  
+
   .comics-grid {
     gap: 10px;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
-  
+
   .search-input {
     font-size: 13px;
     padding: 8px 14px;

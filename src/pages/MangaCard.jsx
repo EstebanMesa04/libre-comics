@@ -1,3 +1,5 @@
+import "./MangaCard.css";
+
 const getPortadaUrl = (manga) => {
   const coverRel = manga.relationships.find((rel) => rel.type === "cover_art");
 
@@ -19,10 +21,10 @@ function MangaCard({ manga }) {
   const portadaUrl = getPortadaUrl(manga);
 
   return (
-    <div>
-      <img src={portadaUrl} alt={titulo} />
-      <h3>{titulo}</h3>
-    </div>
+    <>
+      <img className="mangacard-img" src={portadaUrl} alt={titulo} />
+      <h3 className="mangacard-titulo">{titulo}</h3>
+    </>
   );
 }
 
