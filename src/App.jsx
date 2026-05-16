@@ -35,7 +35,7 @@ function AppContent() {
         />
         {/* <Route path="/lector/:id" element={<Lector />} /> */}
         <Route
-          path="/lector"
+          path="/lector/:id/:id"
           element={
             <AuthGuard>
               <Lector />

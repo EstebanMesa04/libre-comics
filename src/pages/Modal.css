@@ -53,7 +53,6 @@
 .modal-portada {
   width: 200px;
   height: auto;
-  border-radius: 8px;
   object-fit: contain;
 }
 
@@ -79,7 +78,7 @@
 }
 
 .modal-cuerpo h3 {
-  border-bottom: 2px solid #ff4500;
+  border-bottom: 2px solid #6aae9d;
   padding-bottom: 8px;
   margin-bottom: 15px;
 }
@@ -92,9 +91,11 @@
 
 .item-capitulo {
   padding: 14px 18px;
+  color: #cccccc;
   background-color: #2a2a2a;
   margin-bottom: 10px;
   border-radius: 8px;
+  text-decoration: none;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -106,7 +107,7 @@
 
 .item-capitulo:hover {
   background-color: #333333;
-  border-left: 4px solid #ff4500;
+  border-left: 4px solid #6aae9d;
 }
 
 .item-capitulo:active {

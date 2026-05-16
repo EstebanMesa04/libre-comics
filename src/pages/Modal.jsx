@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Modal.css";
 
 function Modal({ manga, alCerrar }) {
@@ -70,9 +71,14 @@ function Modal({ manga, alCerrar }) {
           ) : (
             <ul className="lista-capitulos">
               {capitulos.map((cap) => (
-                <li key={cap.id} className="item-capitulo">
-                  Capítulo {cap.attributes.chapter}
-                  {cap.attributes.title ? ` - ${cap.attributes.title}` : ""}
+                <li key={cap.id}>
+                  <Link
+                    className="item-capitulo"
+                    to={`lector/${manga.id}/${cap.id}`}
+                  >
+                    Capítulo {cap.attributes.chapter}
+                    {cap.attributes.title ? ` - ${cap.attributes.title}` : ""}
+                  </Link>
                 </li>
               ))}
             </ul>
