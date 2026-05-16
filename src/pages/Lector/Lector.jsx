@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useObtenerPaginas } from "../../hooks/useObtenerPaginas";
 import BarraEstado from "./BarraEstado";
 import PanelControl from "./PanelControl";
 import VisorPagina from "./VisorPagina";
@@ -10,6 +12,22 @@ function Lector() {
   const [mostrarPanel, setMostrarPanel] = useState(true);
   const [mostrarBarra, setMostrarBarra] = useState(true);
   const [mostrarNav, setMostrarNav] = useState(true);
+  const [paginaActual, setPaginaActual] = useState(0);
+
+  const idsUrls = useParams();
+  const { paginas, cargando, error } = useObtenerPaginas(idsUrls.capitulo);
+
+  const paginaSiguiente = () => {
+    if (paginaActual + 1 < paginas.length) {
+      setPaginaActual(paginaActual + 1);
+    }
+  };
+
+  const paginaAnterior = () => {
+    if (paginaActual > 0) {
+      setPaginaActual(paginaActual - 1);
+    }
+  };
 
   return (
     <main
@@ -25,7 +43,11 @@ function Lector() {
       >
         <PanelControl
           titulo={"Titulo de ejemplo en la Barra de estado"}
-          pgActual={5}
+          pgActual={paginaActual}
+          setPgActual={setPaginaActual}
+          pgTotal={paginas.length}
+          pgSig={paginaSiguiente}
+          pgAnt={paginaAnterior}
           setNav={setMostrarNav}
           estadoNav={mostrarNav}
           setBarra={setMostrarBarra}
@@ -37,19 +59,19 @@ function Lector() {
       >
         <BarraEstado
           titulo={"Titulo de ejemplo en la Barra de estado"}
-          pgActual={5}
-          pgTotal={15}
+          pgActual={paginaActual + 1}
+          pgTotal={paginas.length}
           setPanel={setMostrarPanel}
           estadoPanel={mostrarPanel}
         />
       </div>
       <VisorPagina
         className="visor-contenedor"
-        url={
-          "https://images.pexels.com/photos/36421534/pexels-photo-36421534.jpeg"
-        }
+        url={paginas[paginaActual]}
         navVisible={mostrarNav}
         barraVisible={mostrarBarra}
+        cargando={cargando}
+        error={error}
       />
     </main>
   );

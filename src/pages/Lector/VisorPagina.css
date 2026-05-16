@@ -1,3 +1,7 @@
+.visorp-mensajes {
+  color: white;
+}
+
 .visorp-contenedor {
   grid-area: v;
   max-width: 100%;

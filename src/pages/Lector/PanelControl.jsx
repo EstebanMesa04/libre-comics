@@ -4,6 +4,11 @@ import "./PanelControl.css";
 function PanelControl({
   titulo,
   pgActual,
+  setPgActual,
+  pgTotal,
+  pgSig,
+  pgAnt,
+
   setNav,
   estadoNav,
   setBarra,
@@ -13,14 +18,33 @@ function PanelControl({
     <div className="panelc-contenedor">
       <h1 className="panelc-titulo">{titulo}</h1>
       <div className="panelc-cajon panelc-botones">
-        <button>{"<-"}</button>
+        <button
+          onClick={() => {
+            pgAnt();
+          }}
+        >
+          {"<-"}
+        </button>
         <label>
           pg
-          <select value={pgActual}>
-            <option value={1}>{1}</option>
+          <select
+            value={pgActual}
+            onChange={(e) => setPgActual(Number(e.target.value))}
+          >
+            {Array.from({ length: pgTotal }, (_, indice) => (
+              <option key={indice + 1} value={indice}>
+                {indice + 1}
+              </option>
+            ))}
           </select>
         </label>
-        <button>{"->"}</button>
+        <button
+          onClick={() => {
+            pgSig();
+          }}
+        >
+          {"->"}
+        </button>
       </div>
       <div className="panelc-herramientas-zoom">
         <h2>Herramientas de zoom</h2>

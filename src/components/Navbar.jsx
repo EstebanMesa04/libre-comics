@@ -12,9 +12,6 @@ function Navbar() {
       <NavLink className="nav-link" to="/favoritos">
         Favoritos
       </NavLink>
-      <NavLink className="nav-link" to="/lector">
-        lector
-      </NavLink>
       <div style={{ flex: 1 }}></div>
       <UserBar />
     </nav>
