@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { useGeneralInfo } from "../../context/GeneralInfoContext";
 import "./PanelControl.css";
 
 function PanelControl({
-  titulo,
   pgActual,
   setPgActual,
   pgTotal,
@@ -14,9 +14,10 @@ function PanelControl({
   setBarra,
   estadoBarra,
 }) {
+  const { nombreManga } = useGeneralInfo();
   return (
     <div className="panelc-contenedor">
-      <h1 className="panelc-titulo">{titulo}</h1>
+      <h1 className="panelc-titulo">{nombreManga}</h1>
       <div className="panelc-cajon panelc-botones">
         <button
           onClick={() => {

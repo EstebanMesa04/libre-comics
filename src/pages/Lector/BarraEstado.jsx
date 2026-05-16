@@ -1,6 +1,9 @@
+import { useGeneralInfo } from "../../context/GeneralInfoContext";
 import "./BarraEstado.css";
 
-function BarraEstado({ titulo, pgActual, pgTotal, setPanel, estadoPanel }) {
+function BarraEstado({ pgActual, pgTotal, setPanel, estadoPanel }) {
+  const { numeroCapitulo, nombreCapitulo } = useGeneralInfo();
+
   return (
     <div className="bar-contenedor">
       <svg
@@ -19,7 +22,7 @@ function BarraEstado({ titulo, pgActual, pgTotal, setPanel, estadoPanel }) {
         />
       </svg>
 
-      <span>{titulo}</span>
+      <span>{`${numeroCapitulo}${nombreCapitulo ? ` - ${nombreCapitulo}` : ""}`}</span>
       <samp>
         pg.{pgActual}/{pgTotal}
       </samp>

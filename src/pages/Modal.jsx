@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useGeneralInfo } from "../context/GeneralInfoContext";
 import "./Modal.css";
 
 function Modal({ manga, alCerrar }) {
+  const { setNombreManga, setNumeroCapitulo, setNombreCapitulo } =
+    useGeneralInfo();
   const [capitulos, setCapitulos] = useState([]);
   const [cargando, setCargando] = useState(true);
 
@@ -71,7 +74,14 @@ function Modal({ manga, alCerrar }) {
           ) : (
             <ul className="lista-capitulos">
               {capitulos.map((cap) => (
-                <li key={cap.id}>
+                <li
+                  key={cap.id}
+                  onClick={() => {
+                    setNombreManga(titulo);
+                    setNumeroCapitulo(cap.attributes.chapter);
+                    setNombreCapitulo(cap.attributes.title);
+                  }}
+                >
                   <Link
                     className="item-capitulo"
                     to={`lector/${manga.id}/${cap.id}`}

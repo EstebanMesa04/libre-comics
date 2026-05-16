@@ -1,6 +1,7 @@
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import AuthGuard from "./components/AuthGuard.jsx";
+import { GeneralInfoProvider } from "./context/GeneralInfoContext.jsx";
 import UserBar from "./components/UserBar.jsx";
 import Galeria from "./pages/Galeria.jsx";
 import Lector from "./pages/Lector/Lector.jsx";
@@ -21,7 +22,9 @@ function AppContent() {
           path="/"
           element={
             <AuthGuard>
-              <Galeria />
+              <GeneralInfoProvider>
+                <Galeria />
+              </GeneralInfoProvider>
             </AuthGuard>
           }
         />
@@ -29,16 +32,19 @@ function AppContent() {
           path="/favoritos"
           element={
             <AuthGuard>
-              <h1>Favoritos</h1>
+              <GeneralInfoProvider>
+                <h1>Favoritos</h1>
+              </GeneralInfoProvider>
             </AuthGuard>
           }
         />
-        {/* <Route path="/lector/:id" element={<Lector />} /> */}
         <Route
-          path="/lector/:manga/:capitulo"
+          path="/lector/:capitulo"
           element={
             <AuthGuard>
-              <Lector />
+              <GeneralInfoProvider>
+                <Lector />
+              </GeneralInfoProvider>
             </AuthGuard>
           }
         />

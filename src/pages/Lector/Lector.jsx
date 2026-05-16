@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useObtenerPaginas } from "../../hooks/useObtenerPaginas";
 import BarraEstado from "./BarraEstado";
@@ -16,6 +16,25 @@ function Lector() {
 
   const idsUrls = useParams();
   const { paginas, cargando, error } = useObtenerPaginas(idsUrls.capitulo);
+
+  // precargador de paginas
+  useEffect(() => {
+    if (paginas.length === 0) return;
+
+    const paginasParaPrecargar = [
+      paginaActual - 2,
+      paginaActual - 1,
+      paginaActual + 1,
+      paginaActual + 2,
+    ];
+
+    paginasParaPrecargar.forEach((i) => {
+      if (i < paginas.length) {
+        const imagenEnMemoria = new Image();
+        imagenEnMemoria.src = paginas[i];
+      }
+    });
+  }, [paginaActual, paginas]);
 
   const paginaSiguiente = () => {
     if (paginaActual + 1 < paginas.length) {
@@ -42,7 +61,6 @@ function Lector() {
         className={`panel-control-contenedor  ${mostrarPanel ? "" : "panel-control-ocultar"}`}
       >
         <PanelControl
-          titulo={"Titulo de ejemplo en la Barra de estado"}
           pgActual={paginaActual}
           setPgActual={setPaginaActual}
           pgTotal={paginas.length}
