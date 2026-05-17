@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useGeneralInfo } from "../../context/GeneralInfoContext";
+import { useGeneralInfo } from "../../context/GeneralInfoContext.jsx";
+import Modal from "../Modal.jsx";
 import "./PanelControl.css";
 
 function PanelControl({
@@ -14,7 +15,18 @@ function PanelControl({
   setBarra,
   estadoBarra,
 }) {
-  const { nombreManga } = useGeneralInfo();
+  const [mostrarModal, setMostrarModal] = useState(false);
+  const { mangaDatos, nombreManga } = useGeneralInfo();
+  console.log(mangaDatos);
+
+  const abrirModal = () => {
+    setMostrarModal(true);
+  };
+
+  const cerrarModal = () => {
+    setMostrarModal(false);
+  };
+
   return (
     <div className="panelc-contenedor">
       <h1 className="panelc-titulo">{nombreManga}</h1>
@@ -46,6 +58,9 @@ function PanelControl({
         >
           {"->"}
         </button>
+        <button onClick={abrirModal} type="button">
+          Otros capitulos
+        </button>
       </div>
       <div className="panelc-herramientas-zoom">
         <h2>Herramientas de zoom</h2>
@@ -76,6 +91,7 @@ function PanelControl({
           />
         </label>
       </div>
+      {mostrarModal ? <Modal manga={mangaDatos} alCerrar={cerrarModal} /> : ""}
     </div>
   );
 }

@@ -44,10 +44,22 @@
 }
 
 .modal-cabecera {
+  position: relative;
   display: flex;
   gap: 25px;
   margin-bottom: 30px;
   max-height: 300px;
+}
+
+.modal-favorito {
+  position: absolute;
+  cursor: pointer;
+  top: 5px;
+  left: 5px;
+  font-size: 26px;
+  background-color: #00000000;
+  border: none;
+  filter: drop-shadow(0 0 8px black);
 }
 
 .modal-portada {

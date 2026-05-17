@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useGeneralInfo } from "../context/GeneralInfoContext";
+import { useFavoritos } from "../hooks/useFavoritos";
 import "./Modal.css";
 
 function Modal({ manga, alCerrar }) {
-  const { setNombreManga, setNumeroCapitulo, setNombreCapitulo } =
-    useGeneralInfo();
   const [capitulos, setCapitulos] = useState([]);
   const [cargando, setCargando] = useState(true);
+  const {
+    setMangaDatos,
+    setNombreManga,
+    setNumeroCapitulo,
+    setNombreCapitulo,
+  } = useGeneralInfo();
+  const { toggleFavorito, esFavorito } = useFavoritos();
 
   // Extraer datos básicos
   const titulo =
@@ -61,6 +67,13 @@ function Modal({ manga, alCerrar }) {
 
         <div className="modal-cabecera">
           <img src={urlPortada} alt={titulo} className="modal-portada" />
+          <button
+            className="modal-favorito"
+            type="button"
+            onClick={() => toggleFavorito(manga.id)}
+          >
+            {esFavorito(manga.id) ? "❤️" : "🤍"}
+          </button>
           <div className="modal-info-basica">
             <h2>{titulo}</h2>
             <p className="modal-descripcion">{descripcion}</p>
@@ -77,14 +90,17 @@ function Modal({ manga, alCerrar }) {
                 <li
                   key={cap.id}
                   onClick={() => {
+                    setMangaDatos(manga);
                     setNombreManga(titulo);
                     setNumeroCapitulo(cap.attributes.chapter);
                     setNombreCapitulo(cap.attributes.title);
+                    alCerrar();
                   }}
                 >
                   <Link
                     className="item-capitulo"
-                    to={`lector/${manga.id}/${cap.id}`}
+                    to={`/lector/${manga.id}/${cap.id}`}
+                    replace={true}
                   >
                     Capítulo {cap.attributes.chapter}
                     {cap.attributes.title ? ` - ${cap.attributes.title}` : ""}

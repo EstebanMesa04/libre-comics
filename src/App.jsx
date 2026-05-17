@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import AuthGuard from "./components/AuthGuard.jsx";
 import { GeneralInfoProvider } from "./context/GeneralInfoContext.jsx";
@@ -6,6 +6,7 @@ import UserBar from "./components/UserBar.jsx";
 import Galeria from "./pages/Galeria.jsx";
 import Lector from "./pages/Lector/Lector.jsx";
 import Navbar from "./components/Navbar";
+import Favoritos from "./pages/Favoritos.jsx";
 import "./App.css";
 
 function AppContent() {
@@ -18,8 +19,9 @@ function AppContent() {
 
       {/* Enrutamiento */}
       <Routes>
+        <Route path="/" element={<Navigate to="/galeria" />} />
         <Route
-          path="/"
+          path="/galeria"
           element={
             <AuthGuard>
               <GeneralInfoProvider>
@@ -33,13 +35,13 @@ function AppContent() {
           element={
             <AuthGuard>
               <GeneralInfoProvider>
-                <h1>Favoritos</h1>
+                <Favoritos />
               </GeneralInfoProvider>
             </AuthGuard>
           }
         />
         <Route
-          path="/lector/:capitulo"
+          path="/lector/:manga/:capitulo"
           element={
             <AuthGuard>
               <GeneralInfoProvider>

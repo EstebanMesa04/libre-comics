@@ -9,5 +9,5 @@
   max-height: 50px;
   font-size: 16px;
   padding: 0px 4px;
-  text-overflow: ellipsis;
+  overflow: hidden;
 }

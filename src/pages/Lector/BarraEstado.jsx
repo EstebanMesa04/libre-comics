@@ -22,7 +22,7 @@ function BarraEstado({ pgActual, pgTotal, setPanel, estadoPanel }) {
         />
       </svg>
 
-      <span>{`${numeroCapitulo}${nombreCapitulo ? ` - ${nombreCapitulo}` : ""}`}</span>
+      <span>{`Capítulo ${numeroCapitulo}${nombreCapitulo ? ` - ${nombreCapitulo}` : ""}`}</span>
       <samp>
         pg.{pgActual}/{pgTotal}
       </samp>
