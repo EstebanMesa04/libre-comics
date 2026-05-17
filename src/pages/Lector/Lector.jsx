@@ -38,15 +38,80 @@ function Lector() {
 
   const paginaSiguiente = () => {
     if (paginaActual + 1 < paginas.length) {
-      setPaginaActual(paginaActual + 1);
+      setPaginaActual((prev) => prev + 1);
     }
   };
 
   const paginaAnterior = () => {
     if (paginaActual > 0) {
-      setPaginaActual(paginaActual - 1);
+      setPaginaActual((prev) => prev - 1);
     }
   };
+
+  // Shortcuts
+  useEffect(() => {
+    if (paginas.length === 0) return;
+
+    const manejarTeclado = (evento) => {
+      // Evitar disparar acciones si el usuario está escribiendo en algún buscador o input
+      if (
+        evento.target.tagName === "INPUT" ||
+        evento.target.tagName === "TEXTAREA"
+      ) {
+        return;
+      }
+
+      //console.log(evento.key);
+
+      // Evaluar la tecla presionada
+      if (
+        evento.key === "ArrowRight" ||
+        evento.key === "d" ||
+        evento.key === "D"
+      ) {
+        paginaSiguiente();
+      }
+
+      if (
+        evento.key === "ArrowLeft" ||
+        evento.key === "a" ||
+        evento.key === "A"
+      ) {
+        paginaAnterior();
+      }
+      // Ocultar o mostrar todo
+      if (evento.key === "f" || evento.key === "F") {
+        if (mostrarBarra || mostrarNav || mostrarPanel) {
+          setMostrarBarra(false);
+          setMostrarNav(false);
+          setMostrarPanel(false);
+        }
+        if (!mostrarBarra && !mostrarNav && !mostrarPanel) {
+          setMostrarBarra(true);
+          setMostrarNav(true);
+          setMostrarPanel(true);
+        }
+      }
+      // Ocultar nav
+      if (evento.key === "n" || evento.key === "N") {
+        setMostrarNav(!mostrarNav);
+      }
+      // Ocultar barra de estado
+      if (evento.key === "b" || evento.key === "B") {
+        setMostrarBarra(!mostrarBarra);
+      }
+      // Ocultar panel de control
+      if (evento.key === "v" || evento.key === "V") {
+        setMostrarPanel(!mostrarPanel);
+      }
+    };
+
+    window.addEventListener("keydown", manejarTeclado);
+
+    return () => {
+      window.removeEventListener("keydown", manejarTeclado);
+    };
+  }, [paginas.length, paginaSiguiente, paginaAnterior]);
 
   return (
     <main

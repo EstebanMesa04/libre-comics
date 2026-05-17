@@ -16,7 +16,7 @@ export const useBuscarManga = (searchTerm = "") => {
         // Parámetros por defecto para "Contenido inicial" o "Búsqueda"
         const params = new URLSearchParams();
 
-        params.append("limit", "20");
+        params.append("limit", "50");
 
         const includes = ["cover_art", "author", "artist"];
         includes.forEach((value) => {
@@ -26,6 +26,11 @@ export const useBuscarManga = (searchTerm = "") => {
         const ratings = ["safe", "suggestive"];
         ratings.forEach((value) => {
           params.append("contentRating[]", value);
+        });
+
+        const translatedLanguage = ["es-la"];
+        translatedLanguage.forEach((value) => {
+          params.append("availableTranslatedLanguage[]", value);
         });
 
         // Si hay término, se añade; si no, la API devuelve los más recientes/populares

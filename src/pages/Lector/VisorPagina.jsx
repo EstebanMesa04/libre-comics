@@ -21,7 +21,7 @@ function VisorPagina({ url, navVisible, barraVisible, cargando, error }) {
   if (cargando)
     return (
       <div className="visorp-contenedor">
-        <p className="visorp-mensajes">Cargando páginas del capítulo...</p>
+        {<p className="visorp-mensajes">Cargando páginas del capítulo...</p>}
       </div>
     );
   if (error) {
@@ -33,7 +33,6 @@ function VisorPagina({ url, navVisible, barraVisible, cargando, error }) {
   }
   return (
     <div className={`visorp-contenedor ${acomodarAltura()} `}>
-      {() => {}}
       <img className="visorp-img" src={url} />
     </div>
   );
