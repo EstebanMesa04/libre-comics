@@ -1,23 +1,6 @@
 import "./VisorPagina.css";
 
 function VisorPagina({ url, navVisible, barraVisible, cargando, error }) {
-  const acomodarAltura = () => {
-    if (navVisible && barraVisible) {
-      return "visorp-contenedor-b2";
-    }
-
-    if (!navVisible && barraVisible) {
-      return "visorp-contenedor-b1";
-    }
-
-    if (navVisible && !barraVisible) {
-      return "visorp-contenedor-b1";
-    }
-
-    if (!navVisible && !barraVisible) {
-      return "visorp-contenedor-b0";
-    }
-  };
   if (cargando)
     return (
       <div className="visorp-contenedor">
@@ -32,7 +15,7 @@ function VisorPagina({ url, navVisible, barraVisible, cargando, error }) {
     );
   }
   return (
-    <div className={`visorp-contenedor ${acomodarAltura()} `}>
+    <div className="visorp-contenedor">
       <img className="visorp-img" src={url} />
     </div>
   );

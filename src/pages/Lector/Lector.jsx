@@ -17,6 +17,30 @@ function Lector() {
   const idsUrls = useParams();
   const { paginas, cargando, error } = useObtenerPaginas(idsUrls.capitulo);
 
+  const acomodarGrilla = () => {
+    if (!mostrarPanel && !mostrarBarra && !mostrarNav) {
+      return "lc-todo-oculto";
+    }
+    if (!mostrarNav && !mostrarBarra) {
+      return "lc-nav-y-barra-oculto";
+    }
+    if (!mostrarPanel && !mostrarBarra) {
+      return "lc-panel-y-barra-oculto";
+    }
+    if (!mostrarPanel && !mostrarNav) {
+      return "lc-panel-y-nav-oculto ";
+    }
+    if (!mostrarBarra) {
+      return "lc-barra-oculto ";
+    }
+    if (!mostrarNav) {
+      return "lc-nav-oculto";
+    }
+    if (!mostrarPanel) {
+      return "lc-panel-oculto";
+    }
+  };
+
   // precargador de paginas
   useEffect(() => {
     if (paginas.length === 0) return;
@@ -114,9 +138,7 @@ function Lector() {
   }, [paginas.length, paginaSiguiente, paginaAnterior]);
 
   return (
-    <main
-      className={`lector-contenedor ${mostrarPanel ? "" : "lector-contenedor-panel-oculto"}`}
-    >
+    <main className={`lector-contenedor ${acomodarGrilla()}`}>
       <div
         className={`navbar-contenedor ${mostrarNav ? "" : "navbar-contenedor-ocultar"}`}
       >
