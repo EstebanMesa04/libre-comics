@@ -9,55 +9,41 @@
     "n n"
     "p b"
     "p v";
+  transition:
+    grid-template-columns 0.3s,
+    grid-template-rows 0.3s;
 }
 
 .lc-panel-oculto {
-  grid-template-areas:
-    "n n"
-    "b b"
-    "v v";
+  grid-template-columns: 0px auto;
 }
 
 .lc-nav-oculto {
-  grid-template-areas:
-    "p b"
-    "p v"
-    "p v";
+  grid-template-rows: 0px 50px calc(-50px + 100vh);
 }
 
 .lc-barra-oculto {
-  grid-template-areas:
-    "n n"
-    "p v"
-    "p v";
+  grid-template-rows: 50px 0px calc(-50px + 100vh);
 }
 
 .lc-panel-y-nav-oculto {
-  grid-template-areas:
-    "b b"
-    "v v"
-    "v v";
+  grid-template-columns: 0px auto;
+  grid-template-rows: 0px 50px calc(-50px + 100vh);
 }
 
 .lc-panel-y-barra-oculto {
-  grid-template-areas:
-    "n n"
-    "v v"
-    "v v";
+  grid-template-columns: 0px auto;
+  grid-template-rows: 50px 0px calc(-50px + 100vh);
 }
 
 .lc-nav-y-barra-oculto {
-  grid-template-areas:
-    "p v"
-    "p v"
-    "p v";
+  grid-template-columns: 300px auto;
+  grid-template-rows: 0px 0px 100vh;
 }
 
 .lc-todo-oculto {
-  grid-template-areas:
-    "v v"
-    "v v"
-    "v v";
+  grid-template-columns: 0px auto;
+  grid-template-rows: 0px 0px 100vh;
 }
 
 .panel-control-contenedor {
@@ -66,23 +52,23 @@
   overflow: hidden;
 }
 .panel-control-ocultar {
-  display: none;
+  width: 0px;
+  transition: width 0.3s;
 }
 
 .navbar-contenedor {
   grid-area: n;
-  overflow: hidden;
 }
 .navbar-contenedor-ocultar {
-  display: none;
+  height: 0px;
+  transition: height 0.3s;
 }
 
 .barra-estado-contenedor {
   grid-area: b;
-  overflow: hidden;
   height: 50px;
-  transition: height 0.3s;
 }
 .barra-estado-ocultar {
-  display: none;
+  height: 0px;
+  transition: height 0.3s;
 }
