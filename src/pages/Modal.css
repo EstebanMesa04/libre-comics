@@ -54,12 +54,23 @@
 .modal-favorito {
   position: absolute;
   cursor: pointer;
-  top: 5px;
-  left: 5px;
+  top: -10px;
+  left: -10px;
   font-size: 26px;
   background-color: #00000000;
   border: none;
-  filter: drop-shadow(0 0 8px black);
+}
+
+.corazon-icono {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(2px 4px 4px #3e3e3e);
+}
+.corazon-icono-si {
+  color: #d76c6c;
+}
+.corazon-icono-no {
+  color: #73577e;
 }
 
 .modal-portada {

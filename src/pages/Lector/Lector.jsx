@@ -173,8 +173,6 @@ function Lector() {
       <VisorPagina
         className="visor-contenedor"
         url={paginas[paginaActual]}
-        navVisible={mostrarNav}
-        barraVisible={mostrarBarra}
         cargando={cargando}
         error={error}
       />
