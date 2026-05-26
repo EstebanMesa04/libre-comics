@@ -72,3 +72,16 @@
   height: 0px;
   transition: height 0.3s;
 }
+
+.bar-icon {
+  grid-area: v;
+  height: 40px;
+  width: auto;
+  transition: height 0.3s;
+}
+
+.bar-icon-ocultar {
+  grid-area: v;
+  height: 0px;
+  width: auto;
+}
